@@ -1,7 +1,6 @@
 /*
 ##### Word Guess Game Bonuses (To-do)
 
-1. Play a sound or song when the user guesses their word correctly, like in our demo.
 2. Write some stylish CSS rules to make a design that fits your game's theme.
 
 Submission links:

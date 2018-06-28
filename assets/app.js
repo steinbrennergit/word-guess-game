@@ -266,8 +266,6 @@ function createListeners() {
 
         if (game.gameOver) {
             return;
-        } else if (game.gameState > 0) {
-            game.startNewRound();
         } else {
             game.resetRound();
         }

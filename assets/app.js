@@ -4,6 +4,33 @@
 1. Play a sound or song when the user guesses their word correctly, like in our demo.
 2. Write some stylish CSS rules to make a design that fits your game's theme.
 
+
+
+########################################################################################
+###########################      TODO      #############################################
+########################################################################################
+### Create a README.md
+
+Add a `README.md` to your repository describing the project. Here are some resources for creating your `README.md`.
+Here are some resources to help you along the way:
+
+* [About READMEs](https://help.github.com/articles/about-readmes/)
+
+* [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+
+- - -
+
+### Add To Your Portfolio
+
+After completing the homework please add the piece to your portfolio. 
+Make sure to add a link to your updated portfolio in the comments section of your homework
+so the TAs can easily ensure you completed this step when they are grading the assignment. 
+To receive an 'A' on any assignment, you must link to it from your portfolio.
+########################################################################################
+###########################      TODO      #############################################
+########################################################################################
+
+
 */
 
 // Word list
@@ -124,7 +151,7 @@ var game = {
 
         if (index === -1) { // incorrect guess
             this.guessesRemaining--;
-        } else { 
+        } else {
             while (index > -1) { // correct guess
                 this.displayWord[index] = key.toUpperCase();
                 this.currentWord.splice(index, 1, "_");
@@ -184,6 +211,7 @@ var game = {
         $letters_guessed.textContent = lettersGuessedString;
 
         $remaining_guesses.textContent = this.guessesRemaining;
+        $num_wins.textContent = this.numWins;
     },
 
     updateGameState: function () {
@@ -230,7 +258,6 @@ function createListeners() {
         // So, instead, here's an ugly, massive check against an array of the alphabet!
         var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
         var key = event.key.toLowerCase();
-        console.log(key);
 
         if (alphabet.indexOf(key) === -1 || game.gameOver || game.gameState !== 0) {
             return;
@@ -245,7 +272,6 @@ function createListeners() {
     //   If game state won, game startNewRound() (get a new word)
     //   else, game resetRound() (restart the current word)
     $round_action.addEventListener('click', function () {
-        console.log(game.localWordList);
         if (game.gameOver) {
             return;
         } else if (game.gameState > 0) {

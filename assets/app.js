@@ -4,10 +4,23 @@
 1. Play a sound or song when the user guesses their word correctly, like in our demo.
 2. Write some stylish CSS rules to make a design that fits your game's theme.
 
+Submission links:
+
+https://github.com/steinbrennergit/word-guess-game
+
+https://steinbrennergit.github.io/word-guess-game/
+
+(portfolio) https://steinbrennergit.github.io/bootstrap-portfolio/portfolio.html
+
 */
 
+
+
 // Word list
-var globalWordList = ["ducks", "cats", "stuff", "testing", "dogs", "twitter"];
+var globalWordList = ["actionscript", "adenine", "assembly", "c", "draco", "erlang", "ecmascript", 
+    "fortress", "george", "haggis", "haskell", "hopscotch", "java", "javascript", "jython",
+    "kaleidoscope", "krypton", "legoscript", "lua", "milk", "newlisp", "pascal", "perl", "powershell",
+    "python", "quakec", "ruby", "sql"];
 
 // References to HTML elements by ID to:
 //   header
@@ -24,6 +37,9 @@ var $letters_guessed = document.getElementById("letters_guessed");
 var $num_wins = document.getElementById("num_wins");
 var $new_game = document.getElementById("new_game"); // button
 var $round_action = document.getElementById("round_action"); // button
+
+var myAudio = document.createElement("audio");
+myAudio.src = "https://upload.wikimedia.org/wikipedia/commons/3/33/Dial_up_modem_noises.ogg";
 
 // Generate random number between 0 and n
 function randomNum(n) {
@@ -77,6 +93,7 @@ var game = {
         }
 
         var index = randomNum(this.localWordList.length);
+        console.log(this.localWordList[index]);
         this.currentWord = Array.from(this.localWordList[index]);
         this.localWordList.splice(index, 1);
         this.resetRound();
@@ -158,7 +175,8 @@ var game = {
 
             // Automatically moving to the next word can be jarring and doesn't provide any user feedback
             // Allow the user to press a button to move to the next word
-            $header.textContent = "You won this word! Play another?";
+            myAudio.play();
+            $header.textContent = "You won this word! Play another? (Wait for audio!)";
             $round_action.textContent = "New Word";
             // To go to next word automatically, comment out the 2 lines above, and uncomment below:
             // game.startNewRound();
@@ -246,6 +264,7 @@ function createListeners() {
     //   If game state won, game startNewRound() (get a new word)
     //   else, game resetRound() (restart the current word)
     $round_action.addEventListener('click', function () {
+
         if (game.gameOver) {
             return;
         } else if (game.gameState > 0) {

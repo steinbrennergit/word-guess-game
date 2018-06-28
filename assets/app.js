@@ -175,7 +175,7 @@ var game = {
             // Automatically moving to the next word can be jarring and doesn't provide any user feedback
             // Allow the user to press a button to move to the next word
             myAudio.play();
-            $header.textContent = "You won this word! Play another? (Wait for audio!)";
+            $header.textContent = "You won this word! Play another? (Enjoy the audio!)";
             $round_action.textContent = "New Word";
             // To go to next word automatically, comment out the 2 lines above, and uncomment below:
             // game.startNewRound();

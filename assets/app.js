@@ -160,6 +160,7 @@ var game = {
         }
 
         this.guesses.push(key.toUpperCase());
+        
         this.updateDisplay();
         this.updateGameState();
         this.endRound();
